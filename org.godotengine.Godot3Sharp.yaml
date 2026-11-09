@@ -1,11 +1,11 @@
 app-id: org.godotengine.Godot3Sharp
 runtime: org.freedesktop.Sdk
-runtime-version: '23.08'
+runtime-version: &runtime-version '26.08'
 sdk: org.freedesktop.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.openjdk17:
     directory: jdk
-    version: '23.08'
+    version: *runtime-version
     no-autodownload: false
     autodelete: false
 sdk-extensions:
@@ -91,10 +91,10 @@ modules:
   - name: dotnet
     buildsystem: simple
     build-options:
-        arch:
-            x86_64:
-                env:
-                    RUNTIME: linux-x64
+      arch:
+        x86_64:
+          env:
+            RUNTIME: linux-x64
     build-commands:
       - /usr/lib/sdk/dotnet8/bin/install-sdk.sh
       - cp -r /usr/lib/sdk/dotnet8/lib/packs/ /app/lib/dotnet/
@@ -114,8 +114,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        sha256: 5bed20a7056d4cc3cca34001752109809ad7ae200548e98c7bbc6afbad18eda7
-        url: https://github.com/godotengine/godot/releases/download/3.6-stable/godot-3.6-stable.tar.xz
+        sha256: 959b6044c07e1972159109ed99259a4cdd8ba0c7776bc1431f91c3d5889625c2
+        url: https://github.com/godotengine/godot/releases/download/3.6.3-stable/godot-3.6.3-stable.tar.xz
 
       - type: script
         dest-filename: godot.sh
